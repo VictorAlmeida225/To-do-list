@@ -90,8 +90,10 @@ const App = () => {
                   ) : (
                     <>
                       <span>{todo}</span>
-                        <button className='bg-stone-500 hover:bg-stone-700 rounded-md ml-1 px-0.5' onClick={() => handleEditTodo(index)}>Editar</button>
-                        <button className='bg-red-500 hover:bg-red-700 rounded-md ml-1 px-0.5' onClick={() => handleRemoveTodo(index)}>Remover</button>
+                        <div className='flex justify-start'> 
+                          <button className='bg-stone-500 hover:bg-stone-700 rounded-md ml-1 px-0.5' onClick={() => handleEditTodo(index)}>Editar</button>
+                          <button className='bg-red-500 hover:bg-red-700 rounded-md ml-1 px-0.5' onClick={() => handleRemoveTodo(index)}>Remover</button>
+                        </div>
                     </>
                   )}
                 </li>
