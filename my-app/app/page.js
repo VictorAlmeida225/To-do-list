@@ -106,31 +106,24 @@ const App = () => {
       <body>
         <div className='flex justify-center w-full'>
           <div className='w-full flex flex-col'>
-            <Navbar
-              fluid={true}
-              rounded={true}
-            >
-              <Navbar.Brand href="#">
-                <img
-                  src="./favicon.ico"
-                  className="mx-3 my-3 h-6 sm:h-9"
-                  alt="To-Do List Logo"
-                />
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                  To-Do List
-                </span>
-              </Navbar.Brand>
-              <Navbar.Toggle />
-              <Navbar.Collapse>
-                <Navbar.Link onClick={handleImportTodos} className='cursor-pointer'>
-                  Importar
-                </Navbar.Link>
-                <Navbar.Link onClick={handleExportTodos} className='mr-5 cursor-pointer'>
-                  Exportar
-                </Navbar.Link>
-                
-              </Navbar.Collapse>
-            </Navbar>
+            <div className='Navbar flex sm:flex-col xl:flex-row bg-sky-800'>
+              <a href="#" className='flex flex-row items-center sm:w-full xl:w-fit'>
+                <img src="./favicon.ico" alt="To-do List Logo"  className='h-10 w-10 m-3'/>
+                <span className='my-auto font-light text-2xl'>To-Do List</span>
+              </a>
+              <div className='flex h-full xl:w-5/6 sm:w-fit' >
+                <div className='flex flex-row m-auto'>
+                  <div onClick={handleImportTodos} className='cursor-pointer flex flex-row m-auto'>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M120-330v-60h300v60H120Zm0-165v-60h470v60H120Zm0-165v-60h470v60H120Zm530 500v-170H480v-60h170v-170h60v170h170v60H710v170h-60Z" fill='white' /></svg>
+                    <span>Importar</span>
+                  </div>
+                  <div onClick={handleExportTodos} className='mr-5 cursor-pointer flex flex-row m-auto'>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M220-40q-24 0-42-18t-18-42v-509q0-24 18-42t42-18h169v60H220v509h520v-509H569v-60h171q24 0 42 18t18 42v509q0 24-18 42t-42 18H220Zm229-307v-457l-88 88-43-43 161-161 161 161-43 43-88-88v457h-60Z" fill='white' /></svg>
+                    <span>Exportar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className='flex justify-center w-full'>
               <div className='lg:container flex flex-col'>
               <div className='flex flex-row'>
