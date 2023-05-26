@@ -2,14 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { Navbar } from "flowbite-react";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState('');
   const [editingIndex, setEditingIndex] = useState(-1);
   const [editingText, setEditingText] = useState('');
-  const [updated, setUpdated] = useState('');
 
   useEffect(() => {
     const savedTodos = localStorage.getItem('todos');
@@ -95,43 +93,28 @@ const App = () => {
     input.click();
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      setUpdated(handleAddTodo);
-    }
-  };
-
+  
   return (
     <html lang="pt-br">
       <body>
         <div className='flex justify-center w-full'>
-          <div className='w-full flex flex-col'>
-            <div className='Navbar flex sm:flex-col xl:flex-row bg-sky-800'>
-              <a href="#" className='flex flex-row items-center sm:w-full xl:w-fit'>
-                <img src="./favicon.ico" alt="To-do List Logo"  className='h-10 w-10 m-3'/>
-                <span className='my-auto font-light text-2xl'>To-Do List</span>
-              </a>
-              <div className='flex h-full xl:w-5/6 sm:w-fit' >
-                <div className='flex flex-row m-auto'>
-                  <div onClick={handleImportTodos} className='cursor-pointer flex flex-row m-auto'>
+            <div className='flex justify-center w-full'>
+              <div className='lg:container flex flex-col'>
+                <div className='flex flex-row m-5'>
+                  <div onClick={handleImportTodos} className='cursor-pointer flex flex-row m-auto items-center'>
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M120-330v-60h300v60H120Zm0-165v-60h470v60H120Zm0-165v-60h470v60H120Zm530 500v-170H480v-60h170v-170h60v170h170v60H710v170h-60Z" fill='white' /></svg>
                     <span>Importar</span>
                   </div>
-                  <div onClick={handleExportTodos} className='mr-5 cursor-pointer flex flex-row m-auto'>
+                <div onClick={handleExportTodos} className='mr-5 cursor-pointer flex flex-row m-auto items-center'>
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M220-40q-24 0-42-18t-18-42v-509q0-24 18-42t42-18h169v60H220v509h520v-509H569v-60h171q24 0 42 18t18 42v509q0 24-18 42t-42 18H220Zm229-307v-457l-88 88-43-43 161-161 161 161-43 43-88-88v457h-60Z" fill='white' /></svg>
                     <span>Exportar</span>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className='flex justify-center w-full'>
-              <div className='lg:container flex flex-col'>
               <div className='flex flex-row'>
                 <input
                   type="text"
                   value={newTodo}
                   onChange={handleInputChange}
-                  onKeyDown={handleKeyDown}
                   placeholder="Digite um novo afazer"
                   className='max-w-2xl mt-3 mb-1.5 ml-1.5 placeholder:italic placeholder:text-slate-400 text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm '
                 />
@@ -201,7 +184,6 @@ const App = () => {
               </div>
             </div>
           </div>
-        </div>
       </body>
     </html>
   );
